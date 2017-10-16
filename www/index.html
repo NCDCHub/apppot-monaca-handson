@@ -6,96 +6,97 @@
     <meta http-equiv="Content-Security-Policy" content="default-src * data: gap: https://ssl.gstatic.com; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
     <script src="components/loader.js"></script>
     <script src="lib/onsenui/js/onsenui.min.js"></script>
-    
     <link rel="stylesheet" href="components/loader.css">
     <link rel="stylesheet" href="lib/onsenui/css/onsenui.css">
     <link rel="stylesheet" href="lib/onsenui/css/onsen-css-components.css">
     <link rel="stylesheet" href="css/style.css">
+
     <script src="js/apppot.js"></script>
     <script src="js/app.js"></script>
   </head>
   <body>
     <ons-navigator id="navi" page="login.html"></ons-navigator>
-    
+
     <!-- ログイン画面 -->
     <ons-template id="login.html">
-    <ons-page id="login-page">
-    <ons-toolbar>
-    <div class="center">ログイン</div>
-    </ons-toolbar>
-    
-    <div class="login-form">
-      <ons-input modifier="underbar" placeholder="User Name" id="userName"></ons-input>
-      <ons-input type="password" modifier="underbar" placeholder="Password" id="password"></ons-input>
-      <ons-button id="loginButton" onclick="login()">ログイン</ons-button>
-    </div>
-    </ons-page>    
+      <ons-page id="login-page">
+        <ons-toolbar>
+          <div class="center">ログイン</div>
+        </ons-toolbar>
+
+        <div class="login-form">
+          <ons-input modifier="underbar" placeholder="User Name" id="userName"></ons-input>
+          <ons-input type="password" modifier="underbar" placeholder="Password" id="password"></ons-input>
+          <ons-button id="loginButton" onclick="login()">ログイン</ons-button>
+        </div>
+      </ons-page>
     </ons-template>
-    
+
     <!-- 取引先一覧画面 -->
     <ons-template id="list.html">
-    <ons-page>   
-    <ons-toolbar>
-    <div class="center">取引先一覧</div>
-    <div class="right">
-      <ons-if platform="ios other">
-      <ons-toolbar-button onclick="addCustomerData()">
-      <ons-icon icon="plus"></ons-icon>
-      </ons-toolbar-button>
-      </ons-if>
-    </div>        
-    </ons-toolbar>
-    
-    <ons-if platform="android">
-    <ons-fab position="bottom right" onclick="addCustomerData()">
-    <ons-icon icon="md-plus"></ons-icon>
-    </ons-fab>
-    </ons-if>
-    
-    <ons-list id="customerList">
-    </ons-list>
-    </ons-page>
+      <ons-page id="list-page">
+        <ons-toolbar>
+          <div class="center">取引先一覧</div>
+          <div class="right">
+            <ons-if platform="ios other">
+              <ons-toolbar-button onclick="addCustomerData()">
+                <ons-icon icon="plus"></ons-icon>
+              </ons-toolbar-button>
+            </ons-if>
+          </div>
+        </ons-toolbar>
+
+        <ons-if platform="android">
+          <ons-fab position="bottom right" onclick="addCustomerData()">
+            <ons-icon icon="md-plus"></ons-icon>
+          </ons-fab>
+        </ons-if>
+
+        <ons-list id="customerList">
+        </ons-list>
+      </ons-page>
     </ons-template>
-    
+
     <!-- 取引先詳細画面 -->
     <ons-template id="detail.html">
-    <ons-page>      
-    <ons-toolbar>
-    <div class="left"><ons-back-button>戻る</ons-back-button></div>
-    <div class="center">取引先詳細</div>
-    </ons-toolbar>
-    
-    <ons-list>
-    <ons-list-header>企業名</ons-list-header>
-    <ons-list-item name="companyName"></ons-list-item>
-    <ons-list-item name="companyNameKana"></ons-list-item>
-    
-    <ons-list-header>住所</ons-list-header>
-    <ons-list-item name="zipCode"></ons-list-item>
-    <ons-list-item name="address"></ons-list-item>
-    
-    <ons-list-header>電話番号</ons-list-header>
-    <ons-list-item name="phoneNumber"></ons-list-item>
-    </ons-page>
+      <ons-page id="detail-page">
+        <ons-toolbar>
+          <div class="left"><ons-back-button>戻る</ons-back-button></div>
+          <div class="center">取引先詳細</div>
+        </ons-toolbar>
+
+        <ons-list>
+          <ons-list-header>企業名</ons-list-header>
+          <ons-list-item name="companyName"></ons-list-item>
+          <ons-list-item name="companyNameKana"></ons-list-item>
+
+          <ons-list-header>住所</ons-list-header>
+          <ons-list-item name="zipCode"></ons-list-item>
+          <ons-list-item name="address"></ons-list-item>
+
+          <ons-list-header>電話番号</ons-list-header>
+          <ons-list-item name="phoneNumber"></ons-list-item>
+        </ons-list>
+      </ons-page>
     </ons-template>
-    
+
     <!-- 取引先登録画面 -->
     <ons-template id="regist.html">
-    <ons-page>
-    <ons-toolbar>
-    <div class="left"><ons-back-button>戻る</ons-back-button></div>
-    <div class="center">取引先登録</div>
-    </ons-toolbar>
-    
-    <div class="regist-form">
-      <ons-input modifier="underbar" placeholder="企業名" id="companyName"></ons-input>
-      <ons-input modifier="underbar" placeholder="企業名カナ" id="companyNameKana"></ons-input>
-      <ons-input modifier="underbar" placeholder="郵便番号" id="zipCode"></ons-input>
-      <ons-input modifier="underbar" placeholder="住所" id="address"></ons-input>
-      <ons-input modifier="underbar" placeholder="電話番号" id="phoneNumber"></ons-input>
-      <ons-button id="registButton" onclick="regist()">登録</ons-button>
-    </div>
-    </ons-page>
+      <ons-page id="regist-page">
+        <ons-toolbar>
+          <div class="left"><ons-back-button>戻る</ons-back-button></div>
+          <div class="center">取引先登録</div>
+        </ons-toolbar>
+
+        <div class="regist-form">
+          <ons-input modifier="underbar" placeholder="企業名" id="companyName"></ons-input>
+          <ons-input modifier="underbar" placeholder="企業名カナ" id="companyNameKana"></ons-input>
+          <ons-input modifier="underbar" placeholder="郵便番号" id="zipCode"></ons-input>
+          <ons-input modifier="underbar" placeholder="住所" id="address"></ons-input>
+          <ons-input modifier="underbar" placeholder="電話番号" id="phoneNumber"></ons-input>
+          <ons-button id="registButton" onclick="regist()">登録</ons-button>
+        </div>
+      </ons-page>
     </ons-template>
   </body>
 </html>
