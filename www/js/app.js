@@ -26,15 +26,7 @@ function login() {
   var password = document.getElementById('password').value;
 
   /******** Exercise 3 : ログイン機能の実装 ********/
-  AppPot.LocalAuthenticator.login(userName, password)
-  .then(() => {
-    console.log("ログインしました。");
-    navi.pushPage('list.html');
-  })
-  .catch((error) => {
-    console.log("ログインに失敗しました。");
-    alert('ログインに失敗しました');
-  });
+  /* TODO: ここに追記 */
   /******** Exercise 3 : ここまで ********/
 }
 
@@ -65,13 +57,10 @@ function showCustomerData(companyId) {
   navi.pushPage('detail.html').then((_page) => {
     page = _page;
     /******** Exercise 4 : 既存データベースへのSELECT機能の実装 ********/
-    return AppPot.Gateway.get("customer-db", "query", {
-        query: "select * from CustomerCompany where companyId = '" + companyId + "'"
-    }, null);
+    /* TODO: ここに追記 */
   })
   .then((response) => {
-    var customer = response.query[0];
-    renderCustomerData(page, customer);
+    /* TODO: ここに追記 */
     /******** Exercise 4 : ここまで ********/
   });
 }
@@ -89,11 +78,7 @@ function renderCustomerData(page, customer) {
 function regist() {
   var requestJson = getSendData();
   /******** Exercise 5 : 既存データベースへの登録機能の実装 ********/
-  AppPot.Gateway.post("customer-db", "CustomerCompany", null, requestJson, null)
-  .then((response) => {
-    alert("登録しました");
-    return navi.popPage();
-  });
+  /* TODO: ここに追記 */
   /******** Exercise 5 : ここまで ********/
 }
 
